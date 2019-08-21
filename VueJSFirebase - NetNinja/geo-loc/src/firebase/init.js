@@ -3,13 +3,13 @@ import firestore from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyAgPwjGhGS02P9vFc2jnAOynfPOt5iEdLc",
-    authDomain: "geo-loc-6f11a.firebaseapp.com",
-    databaseURL: "https://geo-loc-6f11a.firebaseio.com",
-    projectId: "geo-loc-6f11a",
-    storageBucket: "geo-loc-6f11a.appspot.com",
-    messagingSenderId: "905747695201",
-    appId: "1:905747695201:web:ce2259226e917068"
+    apiKey: "Your own api key",
+    authDomain: "Your own auth domain",
+    databaseURL: "Your own database url",
+    projectId: "Your own project id",
+    storageBucket: "Your own storage bucket reference",
+    messagingSenderId: "Your own messaging sender id",
+    appId: "Your own api id"
 };
 
 // Initialize Firebase
