@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Component Fundamentals</title>
+
+    </head>
+
+    <body>
+
+        <!-- <div id="app">
+
+            <h1>VueJS Component Fundamentals</h1>
+            <click-counter></click-counter>
+            <click-counter></click-counter>
+            <click-counter></click-counter>
+            <click-counter></click-counter>
+
+        </div> -->
+
+        <div id="app" class="container mx-auto py-6">
+
+            <div class="content">
+
+                <h1 class="title">Coffee Plans</h1>
+
+                <h2 class="subtitle">
+
+                    We travel the world to source the very best single origin coffee for you
+
+                </h2>
+
+                <!-- <div class="plans"> -->
+
+                    <!-- <plan v-for="plan in plans" :name="plan"> -->
+                    <!-- <plan name="The Hacker"></plan> -->
+                    <!-- <plan name="The Single"></plan> -->
+                    <!-- <plan name="The Curious"></plan> -->
+                    <!-- <plan name="The Addict"></plan> -->
+
+                    <!-- <div class="plan">
+
+                        <div class="description">
+                
+                            <span class="title">
+                
+                                The Single
+                
+                            </span>
+                
+                        </div>
+                
+                    </div> -->
+
+                    <!-- <div class="plan">
+
+                        <div class="description">
+                    
+                            <span class="title">
+                    
+                                The Curious
+                    
+                            </span>
+                    
+                        </div>
+                    
+                    </div> -->
+
+                    <!-- <div class="plan">
+
+                        <div class="description">
+                        
+                            <span class="title">
+                        
+                                The Addict
+                        
+                            </span>
+                        
+                        </div>
+                        
+                    </div> -->
+
+                <!-- </div> -->
+                
+                <plan-picker></plan-picker>
+            
+            </div>
+
+        </div>
+
+        <!-- <script type="text/x-template" id="click-counter-template">
+        
+            <div>
+                
+                <p>Each Component are individual and changes wouldn't affect the others</p>
+                <button id="click-counter-template" @click="count++">{{ count }}</button>
+            
+            </div>
+
+        </script> -->
+
+        <script type="text/x-template" id="plan-picker-template">
+
+            <div class="plans">
+
+                <planPickerItem v-for="plan in plans" :name="plan" @select="selectPlan" :selected-plan="selectedPlan"></planPickerItem>
+
+            </div>
+
+        </script>
+
+        <script type="text/x-template" id="plan-picker-item-template">
+        
+            <div class="plan" @click="select" :class="{'active-plan': isSelected}">
+
+                <div class="description">
+
+                    <span class="title">
+
+                        {{ name }}
+
+                    </span>
+
+                </div>
+
+            </div>
+        
+        </script>
+
+        <script src="https://unpkg.com/vue"></script>
+        
+        <script src="app.js"></script>
+        
+    </body>
+
+</html>

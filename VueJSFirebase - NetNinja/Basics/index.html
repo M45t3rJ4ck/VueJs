@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>Vue Basics</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <style>
+
+            .one {
+                color: aqua;
+            }
+
+            .two {
+                text-decoration: line-through;
+            }
+
+            .canvas {
+                width: 300px;
+                height: 300px;
+                margin-top: 20px;
+                background-color: #ddd;
+                position: relative;
+                float: right;
+            }
+        
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Getting the hang of things</h1>
+
+        <div id="app">
+
+            <h2>{{ title }}</h2>
+            <button @click="logEvent">Log event info</button>
+            <p>{{ greet('morning') }} {{ name }}, are you there?</p>
+            <p>I earn {{ wage }} bucks per hour.</p>
+            <p v-if="showName">Bunny</p>
+            <p v-else-if="showAge">69</p>
+            <button v-on:click="changeWage(1)">Increase pay by 1</button>
+            <button v-on:click="changeWage(-1)">Decrease pay by 1</button>
+            <button v-on:dblclick="changeWage(5)">Increase pay by 5</button>
+            <button v-on:dblclick="changeWage(-5)">Decrease pay by 5</button>
+            <button @click="logMessage">Plain - Click Me</button>
+            <button @click.alt="logMessage">Alt - Click Me</button>
+            <button @click.shift="logMessage">Shift - Click Me</button>
+            <button @click.ctrl="logMessage">Ctrl - Click Me</button>
+            <button @click="toggleName">Show Name: {{ showName }}</button>
+            <button @click="toggleAge">Show Age: {{ showAge }}</button>
+            <a :href="url">To visit google</a>
+            <a href="http://www.yahoo.co.za" @click.prevent="logMessage">To visit yahoo</a>
+            <input type="text" v-model="name" />
+            <input type="text" :placeholder="name" @keyup="updateName" />
+            <input type="text" :placeholder="name" @keypress="updateName" />
+            <div class="canvas" @mousemove="logCoords">{{ coords.x }}, {{ coords.y }}</div>
+            <div :class="classes">Classes from Instance</div>
+            <div v-for="(employee, index) in employees">Employee: 
+                
+                <p>{{ index }}) {{ employee.name }}</p>
+                <p>Age: {{ employee.age }}</p>
+                <p>Hobby: {{ employee.hobby }}</p>
+
+            </div>
+            <ul>
+
+                <li v-for="item in items">{{ item }}</li>
+
+            </ul>
+
+        </div>
+
+        <script src="app.js"></script>
+        
+    </body>
+
+</html>

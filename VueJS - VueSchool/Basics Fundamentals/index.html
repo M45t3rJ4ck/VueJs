@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="main.css">
+
+        <title>Vue Fundamentals</title>
+
+    </head>
+
+    <body>
+
+        <div id="shopping-list">
+
+            <div class="header">
+            
+                <!-- Plain output - Uncomment to use and comment out turnery statement header-->
+                <!-- <h1>{{ header }}</h1> -->
+                <!-- Function output - Uncomment to use and comment out turnery statement header-->
+                <h1>{{ header.toLocaleUpperCase() }}</h1>
+                <!-- Turnery statement -->
+                <!-- <h1>{{ header ? header: 'Shooping List App' }}</h1> -->
+                <button class="btn btn-primary" v-if="state === 'default'" @click="changeState('edit')">Add Item</button>
+                <button class="btn btn-cancal" v-else @click="changeState('default')">Cancel</button>
+            
+            </div>
+
+            <div class="add-item-form" v-if="state === 'edit'">
+                
+                <!-- v-on can be replaced with @ to press enter to add new item -->
+                <!-- <input type="text" v-model="newItem" placeholder="Add a new item..." @keyup.enter="items.push(newItem)"> -->
+                <input type="text" v-model="newItem" placeholder="Add a new item..." @keyup.enter="saveItem">
+                <!-- In browser console copy following code and press enter - To change input placeholder: -->
+                <!-- shoppingList.$data.newItem = '1 Awesome VueJS Course'; -->
+                <!-- In VueDevTools in browser console and select root tag, copy following code and press enter - To display items-->
+                <!-- $vm0.items -->
+                <!-- $vm0.newItem = '1 Awesome VueJS Course' -->
+                <!-- $vm0.items.push($vm0.newItem); -->
+                <!-- To add new item -->
+                <!-- <button class="btn btn-primary" v-on:click="saveItem">Save New Item</button> -->
+                <p>{{ characterCount }}/200</p>
+                <button class="btn btn-primary" @click="saveItem" v-bind:disabled="newItem.length === 0">Save New Item</button>
+            
+            </div>
+
+            <!-- <a v-bind:href="newItem" target="_blank">Dymanic Link</a> -->
+
+            <ul>
+                    
+                <li v-for="item in reversedItems" :class="{strikeout: item.purchased}" @click="togglePurchased(item)">{{ item.label }}</li>
+                <!-- <li v-for="item in items" :class="[item.purchased ? 'strikeout': '', item.highPriority ? 'priority': '']">{{ item.label }}</li> -->
+
+            </ul>
+
+            <p v-if="items.length === 0">Nice Job! You bought all the items on the list!</p>
+
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+
+        <script>
+        
+        // In browser console copy following code and press enter - To change header:
+        // shoppingList.$data.header = 'So am I!'
+        var shoppingList = new Vue({
+            el: '#shopping-list',
+            data: {
+                // To manage add item form and set v-if to edit:
+                state: 'default',
+                // Uncomment to use and comment out turnery statement header:
+                header: 'Shopping List App!',
+                // For turnery statement:
+                // header: null
+                newItem: '',
+                items: [
+                    {
+                        label: '10 party hats',
+                        purchased: false,
+                        highPriority: false
+                    },
+                    {
+                        label: '2 board games',
+                        purchased: true,
+                        highPriority: false
+                    },
+                    {
+                        label: '20 cups',
+                        purchased: false,
+                        highPriority: true
+                    },
+                    // In browser console copy following code and press enter - To add new item:
+                    // shoppingList.$data.items.push('1 Awesome Vue course');
+                    // In browser console copy following code and press enter - To delete an item:
+                    // shoppingList.$data.items.pop();
+                ]
+            },
+            // To change presentation of excisting data:
+            computed: {
+                characterCount (){
+                    return this.newItem.length;
+                },
+                reversedItems () {
+                    return this.items.slice(0).reverse();
+                }
+            },
+            // To change data:
+            methods: {
+                saveItem: function () {
+                    this.items.push({
+                        label: this.newItem,
+                        purchased: false
+                    });
+                    this.newItem = '';
+                },
+                changeState: function (newState) {
+                    this.state = newState;
+                    this.newItem = '';
+                },
+                togglePurchased: function (item) {
+                    item.purchased != item.purchased;
+                }
+            }
+        });
+        
+        </script>
+        
+    </body>
+
+</html>

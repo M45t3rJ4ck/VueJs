@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <title>Slot Fundamentals</title>
+
+    </head>
+
+    <body>
+
+        <div id="app">
+
+            <h1>VueJS Slot Fundamentals</h1>
+
+            <todo-item>
+
+                Buy Bananas
+
+                <template #description>
+
+                    <p>
+
+                        Bananas are good for your health
+            
+                    </p>
+
+                </template>
+
+            </todo-item>
+
+            <todo-item>
+
+                Buy Cheese
+
+                <template #description>
+
+                    <p>
+
+                        Always makes everything taste better
+            
+                    </p>
+
+                </template>
+    
+            </todo-item>
+
+            <todo-item>
+
+                Buy Ham
+
+                <template #description>
+
+                    <p>
+
+                        Is a must when eating pizza
+            
+                    </p>
+
+                </template>
+
+                <template #button-text>
+
+                    Make it rain
+                
+                </template>
+        
+            </todo-item>
+
+            <page-layout>
+
+                <template #header>
+
+                    <h1>Here might be a title</h1>
+
+                </template>
+
+                <p>Just a paragraph for the main content</p>
+                <p>And another one</p>
+
+                <template #footer>
+
+                    <p>This might be some contact info</p>
+
+                </template>
+
+            </page-layout>
+
+        </div>
+
+        <script type="text/x-template" id="todo-item-template">
+        
+            <div>
+
+                <input type="checkbox" v-model="completed">
+                <span :class="{ done: completed }">
+
+                    <slot></slot>
+
+                </span>
+
+                <slot name="description"></slot>
+
+                <button>
+                    
+                    <slot name="button-text">Highlight</slot>
+                
+                </button>
+
+            </div>
+
+        </script>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="main.js"></script>
+
+        <style>
+        
+            .done {
+                color: green;
+                text-decoration: line-through;
+            }
+
+        </style>
+        
+    </body>
+
+</html>
