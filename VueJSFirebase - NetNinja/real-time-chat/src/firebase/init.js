@@ -2,13 +2,13 @@ import firebase from 'firebase'
 import firestore from 'firebase/firestore'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDHGtH3BzPh4uCWeibxh4WAV6ZHiFstCsQ",
-    authDomain: "real-time-chat-9f631.firebaseapp.com",
-    databaseURL: "https://real-time-chat-9f631.firebaseio.com",
-    projectId: "real-time-chat-9f631",
-    storageBucket: "real-time-chat-9f631.appspot.com",
-    messagingSenderId: "658234226172",
-    appId: "1:658234226172:web:ea733bda3cba47d4"
+    apiKey: "Your own api key",
+    authDomain: "Your own auth domain",
+    databaseURL: "Your own database url",
+    projectId: "Your own project id",
+    storageBucket: "Your own storage bucket ref",
+    messagingSenderId: "Your own messaging sender id",
+    appId: "Your own app id"
 };
 
 // Initialize Firebase
